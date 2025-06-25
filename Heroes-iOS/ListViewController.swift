@@ -8,12 +8,16 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var superheroList: [Superhero]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+       
         Task{
-        await SuperHeroProvider.findSuperheroesByName(query: "super") { (result) in
+            superheroList  =  await SuperHeroProvider.findSuperheroesByName(query: "Super")
+            print(superheroList.description)
             
         }
     }
